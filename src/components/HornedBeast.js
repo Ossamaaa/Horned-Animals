@@ -1,33 +1,50 @@
-import React from 'react'
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Card from 'react-bootstrap/Card';
 
 
-class HornedBeast extends React.Component{
+
+class HornedBeasts extends React.Component{
 
     constructor(props){
-        super(props)
-        this.state={
-            count : 0
-        }
+      super(props)
+      this.state={
+        Count :0,
+
+      }
     }
-    handleCounting = ()=>{
-        this.setState({
-            count : this.state.count +1
-        })
+   
+    UserClick=()=>{
+      this.setState({
+        Count : this.state.Count +1 ,
+      })
+    }
+    handleClick=()=>{
+     this.props.OurSelected(this.props.title)
+     
     }
 
 
-render(){
+  render(){
     return(
-        <div>
-            <h2>{this.props.title}</h2>
-            <img onClick={this.handleCounting} src={this.props.image_url} alt ={this.props.title}  Title={this.props.title} />
-            <p>{this.props.description}</p>
-            <p> ❤️ {this.state.count}</p>
+      <div className='cards' onClick={this.handleClick}>
+    <Card >
+    <Card.Img variant="top" onClick ={this.UserClick} src={this.props.image_url} title={this.props.title}  />
+    <Card.Body>
+      <Card.Title>{this.props.title}</Card.Title>
+      <Card.Text>
+      {this.props.description}
+      </Card.Text>
+    </Card.Body>
+    <Card.Footer>
+      <small className="text-muted">number :  ❤️{this.state.Count}</small>
+    </Card.Footer>
+  </Card>
+  </div>
+   ) 
 
-        </div>
-    )
+  }
 }
 
 
-}
-export default HornedBeast; 
+export default HornedBeasts;
