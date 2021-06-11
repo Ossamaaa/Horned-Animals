@@ -27,8 +27,7 @@ class HornedBeasts extends React.Component{
 
   render(){
     return(
-      <div className='cards' onClick={this.handleClick}>
-    <Card >
+    <Card className='cards'  onClick={this.handleClick}>
     <Card.Img variant="top" onClick ={this.UserClick} src={this.props.image_url} title={this.props.title}  />
     <Card.Body>
       <Card.Title>{this.props.title}</Card.Title>
@@ -40,7 +39,6 @@ class HornedBeasts extends React.Component{
       <small className="text-muted">number :  ❤️{this.state.Count}</small>
     </Card.Footer>
   </Card>
-  </div>
    ) 
 
   }
